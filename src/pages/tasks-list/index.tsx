@@ -12,7 +12,7 @@ const TasksListPage = () => {
   const isEmpty = useStore(taskModel.$taskDetailsLoading)
 
   React.useEffect(() => {
-    taskModel.getTasksListFx()
+    taskModel.getTasksListFx({ userId: 1 })
   }, [])
 
   return (
@@ -20,17 +20,20 @@ const TasksListPage = () => {
       <h2>hello mazafaka</h2>
       <div className={styles.list}>
         {isLoading && <h3> Loading list</h3>}
-        {!isLoading && tasks.map((task) => (
-          <ListItemView data={task} />
-        ))}
+        {!isLoading &&
+          tasks.map((task, index) => <ListItemView key={index} task={task} />)}
       </div>
     </div>
   )
 }
 
-const ListItemView = (data: import('shared/api').Task) => {
+const ListItemView = ({ task }: any) => {
   return (
-    <TaskRow data={data} titleHref={`/${data.id}`} before={<ToggleTask taskId={data.id} withStatus={false} />} />
+    <TaskRow
+      data={task}
+      titleHref={`/${task.id}`}
+      before={<ToggleTask taskId={task.id} withStatus={false} />}
+    />
   )
 }
 

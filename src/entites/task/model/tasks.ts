@@ -39,6 +39,6 @@ const useTask = (taskId: number): import('shared/api').Task | undefined => {
 }
 
 export const selectors = {
-  useTask
+  useTask,
 }
-export const $tasksList = combine($tasks, (tasks) => Object.values(tasks).slice(20))
+export const $tasksList = combine($tasks, (tasks) => Object.values(tasks))

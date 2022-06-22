@@ -5,11 +5,11 @@ import { taskModel } from 'entites/task'
 
 const toggleTask = createEvent<number>()
 
-taskModel.$tasks.on(toggleTask, (store, taskId) => {
-  produce(store, (draft) => {
+taskModel.$tasks.on(toggleTask, (state, taskId) =>
+  produce(state, (draft) => {
     const task = draft[taskId]
     task.completed = !task.completed
   })
-})
+)
 
 export const events = { toggleTask }

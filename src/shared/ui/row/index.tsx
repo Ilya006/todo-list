@@ -8,9 +8,9 @@ type PropsType = {
   completed?: boolean
 }
 
-export const Row = ({children, completed}: PropsType) => {
+export const Row = ({ children, completed }: PropsType) => {
   return (
-    <div className={cn(styles.row, {[styles.completed]: completed})}>
+    <div className={cn(styles.row, { [styles.completed]: completed })}>
       {children}
     </div>
   )

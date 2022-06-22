@@ -21,8 +21,9 @@ export const ToggleTask = ({ taskId, withStatus = true }: ToggleTaskProps) => {
 
   return (
     <Checkbox
+      taskId={taskId}
       checked={task.completed}
-      onClick={toggleTaskModel.events.toggleTask(taskId)}
+      onClick={toggleTaskModel.events.toggleTask}
     >
       {withStatus && status}
     </Checkbox>
